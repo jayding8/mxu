@@ -4,7 +4,6 @@
 
 <script>
 import echarts from "../utils/echarts";
-// import * as noise from "../utils/noise";
 
 export default {
   data() {
