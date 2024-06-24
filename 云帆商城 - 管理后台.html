@@ -1,0 +1,1691 @@
+<!DOCTYPE html>
+<!-- saved from url=(0042)https://www.guatuan.cn/?s=/Backstage/index -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title>云帆商城 - 管理后台</title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<link rel="shortcut icon" type="image/x-icon" href="https://yuyuerou.oss-cn-hangzhou.aliyuncs.com/upload/1/20240531/95060a848d3dfec88b11813835a90a19.png">  <link rel="stylesheet" type="text/css" href="./云帆商城 - 管理后台_files/layui.css" media="all">
+<link rel="stylesheet" type="text/css" href="./云帆商城 - 管理后台_files/formSelects-v4.css" media="all">
+<link rel="stylesheet" type="text/css" href="./云帆商城 - 管理后台_files/admin.css" media="all">
+<link rel="stylesheet" type="text/css" href="./云帆商城 - 管理后台_files/font-awesome.min.css" media="all">
+<link rel="stylesheet" type="text/css" href="./云帆商城 - 管理后台_files/webuploader.css" media="all">
+<link rel="stylesheet" type="text/css" href="./云帆商城 - 管理后台_files/designer.css" media="all">
+<link rel="stylesheet" type="text/css" href="./云帆商城 - 管理后台_files/iconfont.css" media="all">
+  <!--<base target="mainFrame">--><base href="." target="mainFrame">
+	<style>
+	::-webkit-scrollbar {
+			width: 4px;
+			height:4px;
+			background-color: rgba(0,0,0,0.1);
+	}
+	::-webkit-scrollbar-track {
+			background-color: #F5F5F5;
+	}
+	::-webkit-scrollbar-thumb {
+			background-color: #888;
+	}
+
+	.wb-subnav {width: 115px;left: 120px;top:50px;bottom: 0;color: #333;border-right: 1px solid #efefef;text-align: left;position: fixed;-webkit-transition: all 0.3s;transition: all 0.3s;background: #fff;z-index: 999;}
+	.wb-subnav ul{display: none;overflow: hidden;}
+	.wb-subnav ul a {padding-left: 25px;height: 100%;width: 100%;display: inline-block;}
+	.wb-subnav .menu-header{line-height: 50px;height:50px;/*border-top: 1px solid #f7f7f8;*/cursor: pointer;padding-left: 15px;}
+	.wb-subnav .menu-icon{width: 20px;height: 50px;text-align: center;font-size: 8px;color: #666;line-height: 50px;}
+
+	.wb-subnav .subnav-scene {overflow: hidden;height: 78px;line-height: 78px;padding-left: 20px;}
+	.wb-subnav ul li {height: 50px;line-height: 50px;font-size: 12px;color:#333;}
+	.wb-subnav ul li a {color: #7c838a;}
+	.wb-subnav ul.single {display: block;}
+	.wb-subnav ul.single li a {padding-left:15px;color: #666;}
+	.wb-subnav ul.multiple {background:rgba(123,125,229,0.05);}
+	.wb-subnav .menu-header:hover{background: #f5f5f5;}
+	.wb-subnav .menu-header.active {background:rgba(123,125,229,0.05);}
+	.wb-subnav .menu-header.data-active:not(.active){background: #f5f5f5;}
+	.wb-subnav .menu-header.point{position: relative;}
+	.wb-subnav .menu-header.point:after{position: absolute;content: '';width:4px;height:4px;border-radius: 50%;left:77px;top:20px;border:2px solid red;}
+	.wb-subnav ul li.active{background:rgba(123,125,229,0.2);}
+	.wb-subnav ul li:hover {background:rgba(123,125,229,0.1);}
+	.wb-subnav ul li.active a {color: #7b7de5;}
+	
+	.wb-subnav .wb-subnav-fold {position: absolute;width: 17px;height: 34px;background: #f7f7f8;top: 20px;left: 93px;line-height: 34px;color: #aaa;border: 1px solid #efefef;border-right: none;cursor: pointer;text-align:center}
+	.layadmin-side-shrink2 .wb-subnav .wb-subnav-fold{left: 110px;background: #fff;transform: rotate(180deg);-webkit-transition: all 0.3s;transition: all 0.3s;}
+
+	/*
+	{main: '#393a6a',selected: '#7b7de5',alias: 'purple-red'}, //紫红  123,125,229
+	{main: '#20222A',selected: '#009688',alias: 'default'}, //主题色 选中色 默认别名
+	{main: '#03152A',selected: '#3B91FF',alias: 'dark-blue'}, //藏蓝
+	{main: '#2E241B',selected: '#A48566',alias: 'coffee'}, //咖啡
+	{main: '#344058',logo: '#1E9FFF',selected: '#1E9FFF',alias: 'ocean'}, //海洋
+	{main: '#3A3D49',logo: '#2F9688',selected: '#5FB878',alias: 'green'}, //墨绿
+	{main: '#20222A',logo: '#F78400',selected: '#F78400',alias: 'red'}, //橙色
+	{main: '#28333E',logo: '#AA3130',selected: '#AA3130',alias: 'fashion-red'}, //时尚红
+	{main: '#24262F',logo: '#3A3D49',selected: '#009688',alias: 'classic-black'} //经典黑
+	*/
+	.layui-layout-body[layadmin-themealias="purple-red"] .wb-subnav ul li.active{background:rgba(123,125,229,0.2);}
+	.layui-layout-body[layadmin-themealias="purple-red"] .wb-subnav ul li:hover {background:rgba(123,125,229,0.1);}
+	.layui-layout-body[layadmin-themealias="purple-red"] .wb-subnav ul li.active a {color: #7b7de5;}
+	.layui-layout-body[layadmin-themealias="purple-red"] .wb-subnav ul.multiple {background:rgba(123,125,229,0.05);}
+	.layui-layout-body[layadmin-themealias="purple-red"] .wb-subnav .menu-header.active {background:rgba(123,125,229,0.05);}
+
+	.layui-layout-body[layadmin-themealias="default"] .wb-subnav ul li.active{background:rgba(0,150,136,0.2);}
+	.layui-layout-body[layadmin-themealias="default"] .wb-subnav ul li:hover {background:rgba(0,150,136,0.1);}
+	.layui-layout-body[layadmin-themealias="default"] .wb-subnav ul li.active a {color: #009688;}
+	.layui-layout-body[layadmin-themealias="default"] .wb-subnav ul.multiple {background:rgba(0,150,136,0.05);}
+	.layui-layout-body[layadmin-themealias="default"] .wb-subnav .menu-header.active {background:rgba(0,150,136,0.05);}
+	
+	.layui-layout-body[layadmin-themealias="dark-blue"] .wb-subnav ul li.active{background:rgba(53,131,230,0.2);}
+	.layui-layout-body[layadmin-themealias="dark-blue"] .wb-subnav ul li:hover {background:rgba(53,131,230,0.1);}
+	.layui-layout-body[layadmin-themealias="dark-blue"] .wb-subnav ul li.active a {color: #3B91FF;}
+	.layui-layout-body[layadmin-themealias="dark-blue"] .wb-subnav ul.multiple {background:rgba(53,131,230,0.05);}
+	.layui-layout-body[layadmin-themealias="dark-blue"] .wb-subnav .menu-header.active {background:rgba(53,131,230,0.05);}
+	
+	.layui-layout-body[layadmin-themealias="coffee"] .wb-subnav ul li.active{background:rgba(148,120,92,0.2);}
+	.layui-layout-body[layadmin-themealias="coffee"] .wb-subnav ul li:hover {background:rgba(148,120,92,0.1);}
+	.layui-layout-body[layadmin-themealias="coffee"] .wb-subnav ul li.active a {color: #A48566;}
+	.layui-layout-body[layadmin-themealias="coffee"] .wb-subnav ul.multiple {background:rgba(148,120,92,0.05);}
+	.layui-layout-body[layadmin-themealias="coffee"] .wb-subnav .menu-header.active {background:rgba(148,120,92,0.05);}
+	
+	.layui-layout-body[layadmin-themealias="ocean"] .wb-subnav ul li.active{background:rgba(27,143,230,0.2);}
+	.layui-layout-body[layadmin-themealias="ocean"] .wb-subnav ul li:hover {background:rgba(27,143,230,0.1);}
+	.layui-layout-body[layadmin-themealias="ocean"] .wb-subnav ul li.active a {color: #1E9FFF;}
+	.layui-layout-body[layadmin-themealias="ocean"] .wb-subnav ul.multiple {background:rgba(27,143,230,0.05);}
+	.layui-layout-body[layadmin-themealias="ocean"] .wb-subnav .menu-header.active {background:rgba(27,143,230,0.05);}
+	
+	.layui-layout-body[layadmin-themealias="green"] .wb-subnav ul li.active{background:rgba(86,166,108,0.2);}
+	.layui-layout-body[layadmin-themealias="green"] .wb-subnav ul li:hover {background:rgba(86,166,108,0.1);}
+	.layui-layout-body[layadmin-themealias="green"] .wb-subnav ul li.active a {color: #5FB878;}
+	.layui-layout-body[layadmin-themealias="green"] .wb-subnav ul.multiple {background:rgba(86,166,108,0.05);}
+	.layui-layout-body[layadmin-themealias="green"] .wb-subnav .menu-header.active {background:rgba(86,166,108,0.05);}
+	
+	.layui-layout-body[layadmin-themealias="red"] .wb-subnav ul li.active{background:rgba(223,119,0,0.2);}
+	.layui-layout-body[layadmin-themealias="red"] .wb-subnav ul li:hover {background:rgba(223,119,0,0.1);}
+	.layui-layout-body[layadmin-themealias="red"] .wb-subnav ul li.active a {color: #F78400;}
+	.layui-layout-body[layadmin-themealias="red"] .wb-subnav ul.multiple {background:rgba(223,119,0,0.05);}
+	.layui-layout-body[layadmin-themealias="red"] .wb-subnav .menu-header.active {background:rgba(223,119,0,0.05);}
+	
+	.layui-layout-body[layadmin-themealias="fashion-red"] .wb-subnav ul li.active{background:rgba(153,44,43,0.2);}
+	.layui-layout-body[layadmin-themealias="fashion-red"] .wb-subnav ul li:hover {background:rgba(153,44,43,0.1);}
+	.layui-layout-body[layadmin-themealias="fashion-red"] .wb-subnav ul li.active a {color: #AA3130;}
+	.layui-layout-body[layadmin-themealias="fashion-red"] .wb-subnav ul.multiple {background:rgba(153,44,43,0.05);}
+	.layui-layout-body[layadmin-themealias="fashion-red"] .wb-subnav .menu-header.active {background:rgba(153,44,43,0.05);}
+
+	.layui-layout-body[layadmin-themealias="classic-black"] .wb-subnav ul li.active{background:rgba(0,135,123,0.2);}
+	.layui-layout-body[layadmin-themealias="classic-black"] .wb-subnav ul li:hover {background:rgba(0,135,123,0.1);}
+	.layui-layout-body[layadmin-themealias="classic-black"] .wb-subnav ul li.active a {color: #009688;}
+	.layui-layout-body[layadmin-themealias="classic-black"] .wb-subnav ul.multiple {background:rgba(0,135,123,0.05);}
+	.layui-layout-body[layadmin-themealias="classic-black"] .wb-subnav .menu-header.active {background:rgba(0,135,123,0.05);}
+	
+	.wxfaceimg{width:25px!important;height:25px!important}
+
+	.flexY{display: flex !important;align-items: center;}
+	</style>
+<link id="layuicss-laydate" rel="stylesheet" href="./云帆商城 - 管理后台_files/laydate.css" media="all"><link id="layuicss-layer" rel="stylesheet" href="./云帆商城 - 管理后台_files/layer.css" media="all"><link id="layuicss-skincodecss" rel="stylesheet" href="./云帆商城 - 管理后台_files/code.css" media="all"></head>
+<body class="layui-layout-body">
+  
+  <div id="LAY_app" class="layadmin-tabspage-none">
+    <div class="layui-layout layui-layout-admin">
+      <div class="layui-header">
+        <!-- 头部区域 -->
+        <ul class="layui-nav layui-layout-left">
+          <li class="layui-nav-item layadmin-flexible " lay-unselect="">
+            <a href="javascript:;" onclick="flexible(this)" title="侧边伸缩">
+              <i class="layui-icon layui-icon-shrink-right " id="LAY_app_flexible"></i>
+            </a>
+          </li>
+          <li class="layui-nav-item layui-hide-xs" lay-unselect="">
+            <a href="javascript:void(0)" onclick="fullScreen()" title="全屏">
+              <img src="./云帆商城 - 管理后台_files/b.png" style="width:16px">
+            </a>
+          </li>
+          <li class="layui-nav-item layui-hide-xs" lay-unselect="">
+            <a href="javascript:;" onclick="refresh()" title="刷新">
+              <img src="./云帆商城 - 管理后台_files/d.png" style="width:16px">
+            </a>
+          </li>
+          <li class="layui-nav-item layui-hide-xs" lay-unselect="">
+            <a href="javascript:;" class="flexY" onclick="showlinks()" title="前端链接地址">
+                <i class="layui-icon" style="font-size:15px"></i>&nbsp;&nbsp;<span>前端链接</span>
+            </a>
+          </li>
+					          <li class="layui-nav-item layui-hide-xs" lay-unselect="" id="mobileicon">
+            <a href="javascript:;" class="flexY" onclick="openmobile()" title="手机端">
+              <img src="./云帆商城 - 管理后台_files/mobile.png" style="width:16px">&nbsp;&nbsp;<span>手机端</span>
+            </a>
+          </li>
+					        <span class="layui-nav-bar"></span></ul>
+        <ul class="layui-nav layui-layout-right" lay-filter="layadmin-layout-right">
+					          <li class="layui-nav-item " lay-unselect="" title="控制台">
+            <a href="javascript:void(0)" class="flexY" onclick="window.parent.location.href=&#39;/?s=/WebSystem/index&#39;" lay-text="控制台">
+              <img src="./云帆商城 - 管理后台_files/e.png" style="width:16px;">&nbsp;&nbsp;<span>控制台</span>
+            </a>
+          </li>
+					
+          <li class="layui-nav-item layui-hide-xs" lay-unselect="" title="通知中心">
+            <a href="https://www.guatuan.cn/?s=/notice/index" lay-text="通知中心" style="">
+              <img src="./云帆商城 - 管理后台_files/f.png" style="width:16px">
+              <!-- 如果有新消息，则显示小圆点 -->
+                          </a>
+          </li>
+          <li class="layui-nav-item layui-hide-xs" lay-unselect="" title="帮助中心">
+            <a href="https://www.guatuan.cn/?s=/help/index" lay-text="帮助中心" style="">
+              <img src="./云帆商城 - 管理后台_files/g.png" style="width:16px">
+            </a>
+          </li>
+          <li class="layui-nav-item" lay-unselect="">
+            <a href="javascript:;">
+              <cite>admin</cite>
+            <span class="layui-nav-more"></span></a>
+            <dl class="layui-nav-child">
+							<dd><a href="https://www.guatuan.cn/?s=/Backstage/setpwd">修改密码</a></dd>
+              <hr>
+              <dd layadmin-event="" style="text-align: center;"><a href="https://www.guatuan.cn/?s=/login/logout" target="_self">退出</a></dd>
+            </dl>
+          </li>
+          
+          <li class="layui-nav-item layui-hide-xs" lay-unselect="">
+            <a href="javascript:;" onclick="theme()"><i class="layui-icon layui-icon-more-vertical"></i></a>
+          </li>
+          <li class="layui-nav-item layui-show-xs-inline-block layui-hide-sm" lay-unselect="">
+            <a href="javascript:;" onclick="theme()"><i class="layui-icon layui-icon-more-vertical"></i></a>
+          </li>
+        <span class="layui-nav-bar"></span></ul>
+      </div>
+      
+      <!-- 侧边菜单 -->
+      <div class="layui-side layui-side-menu">
+        <div class="layui-side-scroll">
+					<a href="https://www.guatuan.cn/?s=/Backstage/welcome">
+          <div class="layui-logo">
+            <span>云帆商城</span>
+          </div>
+					</a>
+          
+          <ul class="layui-nav layui-nav-tree" lay-shrink="all" id="LAY-system-side-menu" lay-filter="layadmin-system-side-menu" style="padding-bottom:50px">
+												<li class="layui-nav-item layui-this">
+							              <a href="javascript:;" lay-tips="商城" lay-direction="2" style="padding-right:0;" onclick="showsubnav(&#39;shop&#39;)">
+                <i class="my-icon my-icon-shop"></i>
+                <cite>商城</cite>
+              </a>
+							            </li>
+												<li class="layui-nav-item">
+							              <a href="javascript:;" lay-tips="商户" lay-direction="2" style="padding-right:0;" onclick="showsubnav(&#39;business&#39;)">
+                <i class="my-icon my-icon-shop"></i>
+                <cite>商户</cite>
+              </a>
+							            </li>
+												<li class="layui-nav-item">
+							              <a href="javascript:;" lay-tips="会员" lay-direction="2" style="padding-right:0;" onclick="showsubnav(&#39;member&#39;)">
+                <i class="my-icon my-icon-member"></i>
+                <cite>会员</cite>
+              </a>
+							            </li>
+												<li class="layui-nav-item">
+							              <a href="javascript:;" lay-tips="门店" lay-direction="2" style="padding-right:0;" onclick="showsubnav(&#39;mendian&#39;)">
+                <i class="my-icon my-icon-member"></i>
+                <cite>门店</cite>
+              </a>
+							            </li>
+												<li class="layui-nav-item">
+							              <a href="javascript:;" lay-tips="财务" lay-direction="2" style="padding-right:0;" onclick="showsubnav(&#39;finance&#39;)">
+                <i class="my-icon my-icon-finance"></i>
+                <cite>财务</cite>
+              </a>
+							            </li>
+												<li class="layui-nav-item">
+							              <a href="javascript:;" lay-tips="营销" lay-direction="2" style="padding-right:0;" onclick="showsubnav(&#39;yingxiao&#39;)">
+                <i class="my-icon my-icon-yingxiao"></i>
+                <cite>营销</cite>
+              </a>
+							            </li>
+												<li class="layui-nav-item">
+							              <a href="javascript:;" lay-tips="约车" lay-direction="2" style="padding-right:0;" onclick="showsubnav(&#39;carhailing&#39;)">
+                <i class="my-icon my-icon-kuozhan"></i>
+                <cite>约车</cite>
+              </a>
+							            </li>
+												<li class="layui-nav-item">
+							              <a href="javascript:;" lay-tips="证书" lay-direction="2" style="padding-right:0;" onclick="showsubnav(&#39;certificate&#39;)">
+                <i class="my-icon my-icon-kuozhan"></i>
+                <cite>证书</cite>
+              </a>
+							            </li>
+												<li class="layui-nav-item">
+							              <a href="javascript:;" lay-tips="扩展" lay-direction="2" style="padding-right:0;" onclick="showsubnav(&#39;component&#39;)">
+                <i class="my-icon my-icon-kuozhan"></i>
+                <cite>扩展</cite>
+              </a>
+							            </li>
+												<li class="layui-nav-item">
+							              <a href="javascript:;" lay-tips="餐饮" lay-direction="2" style="padding-right:0;" onclick="showsubnav(&#39;restaurant&#39;)">
+                <i class="my-icon my-icon-canyin"></i>
+                <cite>餐饮</cite>
+              </a>
+							            </li>
+												<li class="layui-nav-item">
+							              <a href="javascript:;" lay-tips="设计" lay-direction="2" style="padding-right:0;" onclick="showsubnav(&#39;jiemian&#39;)">
+                <i class="my-icon my-icon-sheji"></i>
+                <cite>设计</cite>
+              </a>
+							            </li>
+												<li class="layui-nav-item">
+							              <a href="javascript:;" lay-tips="平台" lay-direction="2" style="padding-right:0;" onclick="showsubnav(&#39;pingtai&#39;)">
+                <i class="my-icon my-icon-pingtai"></i>
+                <cite>平台</cite>
+              </a>
+							            </li>
+												<li class="layui-nav-item">
+							              <a href="javascript:;" lay-tips="系统" lay-direction="2" style="padding-right:0;" onclick="showsubnav(&#39;system&#39;)">
+                <i class="my-icon my-icon-sysset"></i>
+                <cite>系统</cite>
+              </a>
+							            </li>
+						          <span class="layui-nav-bar" style="top: 83.7734px; height: 0px; opacity: 0;"></span></ul>
+        </div>
+								<ul class="layui-nav layui-nav-tree" style="position:absolute;bottom:0">
+					<li class="layui-nav-item " lay-unselect="" title="控制台">
+						<a href="javascript:void(0)" onclick="window.parent.location.href=&#39;/?s=/WebSystem/index&#39;" lay-text="控制台">
+							<i class="my-icon my-icon-kongzhi"></i>控制台
+						</a>
+					</li>
+				<span class="layui-nav-bar"></span></ul>
+								
+      </div>
+			
+
+			<div class="wb-subnav" style="">
+				<div style="width: 100%;height: 100%;overflow-y: auto">
+										<div id="subnav_shop" style="">
+						<div class="subnav-scene">商城系统</div>
+													<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/ShopProduct/index" style="cursor: pointer;font-size:13px">商品管理</a></li>
+                                							</ul>
+																																							<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/ShopOrder/index" style="cursor: pointer;font-size:13px">订单管理</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/ShopRefundOrder/index" style="cursor: pointer;font-size:13px">退款申请</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/ShopComment/index" style="cursor: pointer;font-size:13px">评价管理</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/ShopCategory/index" style="cursor: pointer;font-size:13px">商品分类</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/ShopGroup/index" style="cursor: pointer;font-size:13px">商品分组</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/ShopParam/index" style="cursor: pointer;font-size:13px">商品参数</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/ShopFuwu/index" style="cursor: pointer;font-size:13px">商品服务</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative" class="active"><a href="https://www.guatuan.cn/?s=/ShopPoster/index" style="cursor: pointer;font-size:13px">商品海报</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/ShopOrderlr/index" style="cursor: pointer;font-size:13px">录入订单</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/ShopStock/index" style="cursor: pointer;font-size:13px">录入库存</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/ShopTaobao/index" style="cursor: pointer;font-size:13px">商品采集</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/ShopOrder/tongji" style="cursor: pointer;font-size:13px">销售统计</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/ShopSet/index" style="cursor: pointer;font-size:13px">系统设置</a></li>
+                                							</ul>
+																									</div>
+										<div id="subnav_business" style="display:none">
+						<div class="subnav-scene">多商户</div>
+													<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/Business/index" style="cursor: pointer;font-size:13px">商户列表</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/Business/category" style="cursor: pointer;font-size:13px">商户分类</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/ShopProduct/index&amp;showtype=2" style="cursor: pointer;font-size:13px">商户商品</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/Business/sales" style="cursor: pointer;font-size:13px">商户销量</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/ShopOrder/index&amp;showtype=2" style="cursor: pointer;font-size:13px">商户订单</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/BusinessComment/index&amp;showtype=2" style="cursor: pointer;font-size:13px">商户评价</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/CollageProduct/index&amp;showtype=2" style="cursor: pointer;font-size:13px">拼团商品</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/KanjiaProduct/index&amp;showtype=2" style="cursor: pointer;font-size:13px">砍价商品</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/SeckillProduct/index&amp;showtype=2" style="cursor: pointer;font-size:13px">秒杀商品</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/TuangouProduct/index&amp;showtype=2" style="cursor: pointer;font-size:13px">团购商品</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/YuyueList/index&amp;showtype=2" style="cursor: pointer;font-size:13px">服务商品</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/CycleProduct/index&amp;showtype=2" style="cursor: pointer;font-size:13px">周期购商品</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/LuckyCollageProduct/index&amp;showtype=2" style="cursor: pointer;font-size:13px">幸运拼团商品</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/Article/index&amp;showtype=2" style="cursor: pointer;font-size:13px">文章列表</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/Shortvideo/index&amp;showtype=2" style="cursor: pointer;font-size:13px">短视频列表</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/Form/index&amp;showtype=2" style="cursor: pointer;font-size:13px">自定义表单</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/BusinessMoney/moneylog" style="cursor: pointer;font-size:13px">余额明细</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/BusinessMoney/withdrawlog" style="cursor: pointer;font-size:13px">提现记录</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/BusinessNotice/index" style="cursor: pointer;font-size:13px">通知公告</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/DesignerMenu/business" style="cursor: pointer;font-size:13px">默认导航</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/Business/sysset" style="cursor: pointer;font-size:13px">系统设置</a></li>
+                                							</ul>
+																									</div>
+										<div id="subnav_member" style="display:none">
+						<div class="subnav-scene">会员管理</div>
+													<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/Member/index" style="cursor: pointer;font-size:13px">会员列表</a></li>
+                                							</ul>
+																																																									<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/MemberLevel/index" style="cursor: pointer;font-size:13px">等级及分销</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/MemberLevel/applyorder" style="cursor: pointer;font-size:13px">升级申请记录</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/MemberLevel/changePidLog" style="cursor: pointer;font-size:13px">脱离记录</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/Member/charts" style="cursor: pointer;font-size:13px">会员关系图</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/MemberPoster/index" style="cursor: pointer;font-size:13px">分享海报</a></li>
+                                							</ul>
+																																																																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/Largearea/index" style="cursor: pointer;font-size:13px">大区设置</a></li>
+                                							</ul>
+																																	<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/MemberSet/index" style="cursor: pointer;font-size:13px">资料自定义</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/RegisterForm/index" style="cursor: pointer;font-size:13px">注册自定义</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/MemberProduct/index" style="cursor: pointer;font-size:13px">一客一价</a></li>
+                                							</ul>
+																																											</div>
+										<div id="subnav_mendian" style="display:none">
+						<div class="subnav-scene">门店管理</div>
+													<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/Mendian/index2" style="cursor: pointer;font-size:13px">门店列表</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/MendianGroup/index" style="cursor: pointer;font-size:13px">门店分组</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/MendianLevel/index" style="cursor: pointer;font-size:13px">门店等级</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/MendianSet/index" style="cursor: pointer;font-size:13px">门店设置</a></li>
+                                							</ul>
+																									</div>
+										<div id="subnav_finance" style="display:none">
+						<div class="subnav-scene">财务管理</div>
+													<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/Payorder/index" style="cursor: pointer;font-size:13px">消费明细</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/Money/moneylog" style="cursor: pointer;font-size:13px">余额明细</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/Money/rechargelog" style="cursor: pointer;font-size:13px">充值记录</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/Money/withdrawlog" style="cursor: pointer;font-size:13px">余额提现</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/Commission/record" style="cursor: pointer;font-size:13px">佣金记录</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/Commission/commissionlog" style="cursor: pointer;font-size:13px">佣金明细</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/Commission/withdrawlog" style="cursor: pointer;font-size:13px">佣金提现</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/Score/scorelog" style="cursor: pointer;font-size:13px">积分明细</a></li>
+                                							</ul>
+																											<div class="menu-header" style="font-size:13px">买单收款<div class="menu-icon fa fa-caret-right"></div></div>
+							<ul class="multiple">
+														<li><a href="https://www.guatuan.cn/?s=/Maidan/add">买单扣费</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/Maidan/index">买单记录</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/Maidan/set">聚合收款码</a></li>
+																					</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/Commission/fenhonglog" style="cursor: pointer;font-size:13px">分红记录</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/MendianMoney/moneylog" style="cursor: pointer;font-size:13px">门店佣金明细</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/MendianMoney/withdrawlog" style="cursor: pointer;font-size:13px">门店佣金提现</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/Commission/fuchiRecord" style="cursor: pointer;font-size:13px">扶持金记录</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/Commission/fuchiLog" style="cursor: pointer;font-size:13px">扶持金明细</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/Hexiao/index" style="cursor: pointer;font-size:13px">核销记录</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/Invoice/index" style="cursor: pointer;font-size:13px">发票管理</a></li>
+                                							</ul>
+																											<div class="menu-header" style="font-size:13px">奖金池<div class="menu-icon fa fa-caret-right"></div></div>
+							<ul class="multiple">
+														<li><a href="https://www.guatuan.cn/?s=/BonusPool/index">奖金池</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/BonusPool/category">奖金池分类</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/BonusPool/record">贡献值记录</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/BonusPool/commissionlog">贡献值明细</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/BonusPool/withdrawlog">贡献值提现记录</a></li>
+																												</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/OverdraftMoney/moneylog" style="cursor: pointer;font-size:13px">信用额度明细</a></li>
+                                							</ul>
+																									</div>
+										<div id="subnav_yingxiao" style="display:none">
+						<div class="subnav-scene">营销活动</div>
+													<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/Coupon/index" style="cursor: pointer;font-size:13px">优惠券</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/Member/registerGive" style="cursor: pointer;font-size:13px">注册赠送</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/Money/giveset" style="cursor: pointer;font-size:13px">充值赠送</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/Manjian/set" style="cursor: pointer;font-size:13px">购物满减</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/Cuxiao/index" style="cursor: pointer;font-size:13px">商品促销</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/Cashback/index" style="cursor: pointer;font-size:13px">购物返现</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/Forcerebuy/index" style="cursor: pointer;font-size:13px">强制复购</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/Payaftergive/index" style="cursor: pointer;font-size:13px">支付后赠送</a></li>
+                                							</ul>
+																											<div class="menu-header" style="font-size:13px">多人拼团<div class="menu-icon fa fa-caret-right"></div></div>
+							<ul class="multiple">
+														<li><a href="https://www.guatuan.cn/?s=/CollageProduct/index">商品管理</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/CollageOrder/index">订单管理</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/CollageTeam/index">拼团管理</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/CollageComment/index">评价管理</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/CollageCategory/index">商品分类</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/CollagePoster/index">分享海报</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/CollageSet/index">系统设置</a></li>
+																					</ul>
+																											<div class="menu-header" style="font-size:13px">砍价活动<div class="menu-icon fa fa-caret-right"></div></div>
+							<ul class="multiple">
+														<li><a href="https://www.guatuan.cn/?s=/KanjiaProduct/index">商品管理</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/KanjiaOrder/index">订单管理</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/KanjiaPoster/index">分享海报</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/KanjiaSet/index">系统设置</a></li>
+																												</ul>
+																											<div class="menu-header" style="font-size:13px">整点秒杀<div class="menu-icon fa fa-caret-right"></div></div>
+							<ul class="multiple">
+														<li><a href="https://www.guatuan.cn/?s=/SeckillProduct/index">商品列表</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/SeckillOrder/index">订单列表</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/SeckillComment/index">用户评价</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/SeckillSet/index">秒杀设置</a></li>
+																					</ul>
+																											<div class="menu-header" style="font-size:13px">团购活动<div class="menu-icon fa fa-caret-right"></div></div>
+							<ul class="multiple">
+														<li><a href="https://www.guatuan.cn/?s=/TuangouProduct/index">商品管理</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/TuangouOrder/index">订单管理</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/TuangouComment/index">评价管理</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/TuangouCategory/index">商品分类</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/TuangouPoster/index">分享海报</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/TuangouSet/index">系统设置</a></li>
+																					</ul>
+																											<div class="menu-header" style="font-size:13px">积分兑换<div class="menu-icon fa fa-caret-right"></div></div>
+							<ul class="multiple">
+														<li><a href="https://www.guatuan.cn/?s=/ScoreshopProduct/index">商品管理</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/ScoreshopOrder/index">订单管理</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/ScoreshopCategory/index">商品分类</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/ScoreshopPoster/index">分享海报</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/ScoreshopSet/index">系统设置</a></li>
+																					</ul>
+																											<div class="menu-header" style="font-size:13px">抽奖活动<div class="menu-icon fa fa-caret-right"></div></div>
+							<ul class="multiple">
+														<li><a href="https://www.guatuan.cn/?s=/Choujiang/index">活动列表</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/Choujiang/record">抽奖记录</a></li>
+																					</ul>
+																											<div class="menu-header" style="font-size:13px">幸运拼团<div class="menu-icon fa fa-caret-right"></div></div>
+							<ul class="multiple">
+														<li><a href="https://www.guatuan.cn/?s=/LuckyCollageProduct/index">商品管理</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/LuckyCollageOrder/index">订单管理</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/LuckyCollageTeam/index">拼团管理</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/LuckyCollageComment/index">评价管理</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/LuckyCollageCategory/index">商品分类</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/LuckyCollagePoster/index">分享海报</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/LuckyCollageJiqiren/index">机器人管理</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/LuckyCollageSet/index">系统设置</a></li>
+																					</ul>
+																											<div class="menu-header" style="font-size:13px">短视频<div class="menu-icon fa fa-caret-right"></div></div>
+							<ul class="multiple">
+														<li><a href="https://www.guatuan.cn/?s=/ShortvideoCategory/index">分类列表</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/Shortvideo/index">视频列表</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/ShortvideoComment/index">评论列表</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/ShortvideoCommentReply/index">回评列表</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/ShortvideoPoster/index">海报设置</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/ShortvideoSysset/index">系统设置</a></li>
+																					</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/InviteCashback/index" style="cursor: pointer;font-size:13px">邀请返现</a></li>
+                                							</ul>
+																											<div class="menu-header" style="font-size:13px">拓客活动<div class="menu-icon fa fa-caret-right"></div></div>
+							<ul class="multiple">
+														<li><a href="https://www.guatuan.cn/?s=/HbtkActivity/index">活动列表</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/HbtkPoster/index">分享海报</a></li>
+																					</ul>
+																											<div class="menu-header" style="font-size:13px">商户免单<div class="menu-icon fa fa-caret-right"></div></div>
+							<ul class="multiple">
+														<li><a href="https://www.guatuan.cn/?s=/BusinessMiandan/index">免单列表</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/BusinessMiandanOrder/index">免单订单列表</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/BusinessMiandanSet/set">免单设置</a></li>
+																					</ul>
+																											<div class="menu-header" style="font-size:13px">团队业绩奖<div class="menu-icon fa fa-caret-right"></div></div>
+							<ul class="multiple">
+														<li><a href="https://www.guatuan.cn/?s=/TeamSaleYeji/index">团队业绩</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/TeamSaleYeji/set">业绩奖设置</a></li>
+																					</ul>
+																									</div>
+										<div id="subnav_carhailing" style="display:none">
+						<div class="subnav-scene">约车管理</div>
+													<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/CarHailingCategory/index" style="cursor: pointer;font-size:13px">约车类型</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/CarHailingProduct/index" style="cursor: pointer;font-size:13px">约车列表</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/CarHailingOrder/index" style="cursor: pointer;font-size:13px">约车记录</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/CarHailingPoster/index" style="cursor: pointer;font-size:13px">约车海报</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/CarHailingSet/set" style="cursor: pointer;font-size:13px">系统设置</a></li>
+                                							</ul>
+																									</div>
+										<div id="subnav_certificate" style="display:none">
+						<div class="subnav-scene">证书管理</div>
+													<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/CertificateList/index" style="cursor: pointer;font-size:13px">证书列表</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/CertificateCategory/index" style="cursor: pointer;font-size:13px">证书类别</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/CertificateJob/index" style="cursor: pointer;font-size:13px">职业管理</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/CertificateEducation/index" style="cursor: pointer;font-size:13px">学历管理</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/CertificateList/set" style="cursor: pointer;font-size:13px">证书设置</a></li>
+                                							</ul>
+																									</div>
+										<div id="subnav_component" style="display:none">
+						<div class="subnav-scene">扩展功能</div>
+													<div class="menu-header" style="font-size:13px">文章管理<div class="menu-icon fa fa-caret-right"></div></div>
+							<ul class="multiple">
+														<li><a href="https://www.guatuan.cn/?s=/Article/index">文章列表</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/ArticleCategory/index">文章分类</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/ArticlePinglun/index">评论列表</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/ArticlePlreply/index">回评列表</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/ArticleSet/set">系统设置</a></li>
+																					</ul>
+																											<div class="menu-header" style="font-size:13px">用户论坛<div class="menu-icon fa fa-caret-right"></div></div>
+							<ul class="multiple">
+														<li><a href="https://www.guatuan.cn/?s=/Luntan/index">帖子列表</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/LuntanCategory/index">分类管理</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/LuntanPinglun/index">评论列表</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/LuntanPlreply/index">回评列表</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/Luntan/sysset">系统设置</a></li>
+																					</ul>
+																											<div class="menu-header" style="font-size:13px">积分签到<div class="menu-icon fa fa-caret-right"></div></div>
+							<ul class="multiple">
+														<li><a href="https://www.guatuan.cn/?s=/Sign/record">签到记录</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/Sign/set">签到设置</a></li>
+																					</ul>
+																											<div class="menu-header" style="font-size:13px">预约服务<div class="menu-icon fa fa-caret-right"></div></div>
+							<ul class="multiple">
+														<li><a href="https://www.guatuan.cn/?s=/Yuyue/index">服务类型</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/YuyueList/index">服务商品</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/YuyueOrder/index">服务订单</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/YuyueFuwu/index">商品服务</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/YuyueComment/index">商品评价</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/YuyuePoster/index">海报设置</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/YuyueWorkerCategory/index">人员类型</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/YuyueWorker/index">人员列表</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/YuyueWorkerComment/index">人员评价</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/YuyueMoney/moneylog">提成明细</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/YuyueMoney/withdrawlog">提现记录</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/YuyueSet/set">系统设置</a></li>
+																					</ul>
+																											<div class="menu-header" style="font-size:13px">知识付费<div class="menu-icon fa fa-caret-right"></div></div>
+							<ul class="multiple">
+														<li><a href="https://www.guatuan.cn/?s=/KechengCategory/index">课程分类</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/KechengList/index">课程列表</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/KechengChapter/index">课程章节</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/KechengTiku/index">题库管理</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/KechengOrder/index">课程订单</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/KechengStudylog/index">学习记录</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/KechengPoster/index">课程海报</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/KechengSet/index">课程设置</a></li>
+																					</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/VideoList/index" style="cursor: pointer;font-size:13px">视频管理</a></li>
+                                							</ul>
+																											<div class="menu-header" style="font-size:13px">同城配送<div class="menu-icon fa fa-caret-right"></div></div>
+							<ul class="multiple">
+														<li><a href="https://www.guatuan.cn/?s=/PeisongUser/index">配送员列表</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/PeisongOrder/index">配送单列表</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/PeisongComment/index">评价列表</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/PeisongMoney/moneylog">提成明细</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/PeisongMoney/withdrawlog">提现记录</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/Peisong/set">系统设置</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/Peisong/makeset">码科跑腿对接</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/Peisong/mytset">麦芽田设置</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/MytPeisongOrder/index">麦芽田订单</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/PaotuiSet/index">跑腿设置</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/PaotuiOrder/index">跑腿订单</a></li>
+																					</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/Miandan/index" style="cursor: pointer;font-size:13px">物流助手</a></li>
+                                							</ul>
+																											<div class="menu-header" style="font-size:13px">投票活动<div class="menu-icon fa fa-caret-right"></div></div>
+							<ul class="multiple">
+														<li><a href="https://www.guatuan.cn/?s=/Toupiao/index">活动列表</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/Toupiao/joinlist">选手列表</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/Toupiao/helplist">投票记录</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/ToupiaoGroup/index">投票分组</a></li>
+																					</ul>
+																											<div class="menu-header" style="font-size:13px">约课报名<div class="menu-icon fa fa-caret-right"></div></div>
+							<ul class="multiple">
+														<li><a href="https://www.guatuan.cn/?s=/YuekeCategory/index">课程类型</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/YuekeProduct/index">课程列表</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/YuekeOrder/index">约课记录</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/YuekeWorker/index">教练列表</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/YuekePoster/index">海报设置</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/YuekeSet/set">系统设置</a></li>
+																					</ul>
+																											<div class="menu-header" style="font-size:13px">活动报名<div class="menu-icon fa fa-caret-right"></div></div>
+							<ul class="multiple">
+														<li><a href="https://www.guatuan.cn/?s=/HuodongBaomingCategory/index">活动报名类型</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/HuodongBaomingList/index">活动报名列表</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/HuodongBaomingOrder/index">活动报名订单</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/HuodongBaomingPoster/index">海报设置</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/HuodongBaomingSet/set">系统设置</a></li>
+																					</ul>
+																											<div class="menu-header" style="font-size:13px">每日金句<div class="menu-icon fa fa-caret-right"></div></div>
+							<ul class="multiple">
+														<li><a href="https://www.guatuan.cn/?s=/DailyjinjuProduct/index">每日金句</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/DailyjinjuDaka/index">打卡列表</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/DailyjinjuGanwu/index">感悟列表</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/DailyjinjuPoster/index">海报设置</a></li>
+																					</ul>
+																											<div class="menu-header" style="font-size:13px">周期购<div class="menu-icon fa fa-caret-right"></div></div>
+							<ul class="multiple">
+														<li><a href="https://www.guatuan.cn/?s=/CycleProduct/index">商品管理</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/CycleOrder/index">订单管理</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/CycleOrder/cycle_list&amp;status=1">配送管理</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/CycleComment/index">评价管理</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/CycleCategory/index">商品分类</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/CyclePoster/index">分享海报</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/CycleSet/index">系统设置</a></li>
+																					</ul>
+																											<div class="menu-header" style="font-size:13px">名片<div class="menu-icon fa fa-caret-right"></div></div>
+							<ul class="multiple">
+														<li><a href="https://www.guatuan.cn/?s=/Mingpian/index">名片列表</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/Mingpian/set">系统设置</a></li>
+																					</ul>
+																											<div class="menu-header" style="font-size:13px">收银台<div class="menu-icon fa fa-caret-right"></div></div>
+							<ul class="multiple">
+														<li><a href="https://www.guatuan.cn/?s=/Cashier/index">收银设置</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/CashierOrder/index">收银订单</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/CashierOrder/tongji">订单统计</a></li>
+																					</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/Form/index" style="cursor: pointer;font-size:13px">自定义表单</a></li>
+                                							</ul>
+																											<div class="menu-header" style="font-size:13px">礼品卡<div class="menu-icon fa fa-caret-right"></div></div>
+							<ul class="multiple">
+														<li><a href="https://www.guatuan.cn/?s=/Lipin/index">礼品卡</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/Lipin/codelist">礼品卡兑换码</a></li>
+																																																								<li><a href="https://www.guatuan.cn/?s=/LipinCategory/index">礼品卡分类</a></li>
+																					</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/Live/index" style="cursor: pointer;font-size:13px">小程序直播</a></li>
+                                							</ul>
+																											<div class="menu-header" style="font-size:13px">微信广告<div class="menu-icon fa fa-caret-right"></div></div>
+							<ul class="multiple">
+														<li><a href="https://www.guatuan.cn/?s=/Wxadvert/index">广告列表</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/Wxadvert/addata">汇总数据</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/Wxadvert/settle">结算数据</a></li>
+																					</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/Headimg/index" style="cursor: pointer;font-size:13px">头像库</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/RenovationCalculator/set" style="cursor: pointer;font-size:13px">装修计算器</a></li>
+                                							</ul>
+																											<div class="menu-header" style="font-size:13px">文心AI绘画<div class="menu-icon fa fa-caret-right"></div></div>
+							<ul class="multiple">
+														<li><a href="https://www.guatuan.cn/?s=/ImgaiSet/index">参数配置</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/ImgaiCategory/index">风格分类</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/ImgaiKeyword/index">推荐关键词</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/ImgaiOrder/index">申请列表</a></li>
+																					</ul>
+																											<div class="menu-header" style="font-size:13px">地图标注<div class="menu-icon fa fa-caret-right"></div></div>
+							<ul class="multiple">
+														<li><a href="https://www.guatuan.cn/?s=/MapmarkSet/index">参数配置</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/MapmarkCategory/index">地图类型</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/MapmarkOrder/index">申请列表</a></li>
+																					</ul>
+																											<div class="menu-header" style="font-size:13px">视频水印<div class="menu-icon fa fa-caret-right"></div></div>
+							<ul class="multiple">
+														<li><a href="https://www.guatuan.cn/?s=/VideospiderSet/index">参数配置</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/VideospiderCategory/index">支持平台</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/VideospiderOrder/index">申请列表</a></li>
+																					</ul>
+																											<div class="menu-header" style="font-size:13px">智能开门<div class="menu-icon fa fa-caret-right"></div></div>
+							<ul class="multiple">
+														<li><a href="https://www.guatuan.cn/?s=/Cerberuse/index">智能开门</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/CerberuseOrder/index">订单记录</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/CerberuseSet/set">系统设置</a></li>
+																					</ul>
+																									</div>
+										<div id="subnav_restaurant" style="display:none">
+						<div class="subnav-scene">餐饮系统</div>
+													<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/Restaurant/index" style="cursor: pointer;font-size:13px">首页</a></li>
+                                							</ul>
+																											<div class="menu-header" style="font-size:13px">菜品<div class="menu-icon fa fa-caret-right"></div></div>
+							<ul class="multiple">
+														<li><a href="https://www.guatuan.cn/?s=/RestaurantProduct/index">菜品列表</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/RestaurantProductCategory/index">菜品分类</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/RestaurantTaobao/index">菜品采集</a></li>
+																					</ul>
+																											<div class="menu-header" style="font-size:13px">外卖<div class="menu-icon fa fa-caret-right"></div></div>
+							<ul class="multiple">
+														<li><a href="https://www.guatuan.cn/?s=/RestaurantTakeawayOrder/index">外卖订单</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/RestaurantTakeawayComment/index">评价管理</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/RestaurantTakeawayFreight/index">配送方式</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/RestaurantTakeawaySet/index">外卖设置</a></li>
+																					</ul>
+																											<div class="menu-header" style="font-size:13px">点餐<div class="menu-icon fa fa-caret-right"></div></div>
+							<ul class="multiple">
+														<li><a href="https://www.guatuan.cn/?s=/RestaurantShopOrder/index">点餐订单</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/RestaurantShopComment/index">评价管理</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/RestaurantShopSet/index">点餐设置</a></li>
+																					</ul>
+																											<div class="menu-header" style="font-size:13px">预定<div class="menu-icon fa fa-caret-right"></div></div>
+							<ul class="multiple">
+														<li><a href="https://www.guatuan.cn/?s=/RestaurantBookingOrder/index">预定订单</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/RestaurantBookingSet/index">预定设置</a></li>
+																					</ul>
+																											<div class="menu-header" style="font-size:13px">排队<div class="menu-icon fa fa-caret-right"></div></div>
+							<ul class="multiple">
+														<li><a href="https://www.guatuan.cn/?s=/RestaurantQueue/index">排队队列</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/RestaurantQueueCategory/index">队列设置</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/RestaurantQueueSet/index">排队设置</a></li>
+																					</ul>
+																											<div class="menu-header" style="font-size:13px">寄存<div class="menu-icon fa fa-caret-right"></div></div>
+							<ul class="multiple">
+														<li><a href="https://www.guatuan.cn/?s=/RestaurantDeposit/index">寄存管理</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/RestaurantDeposit/edit">添加寄存</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/RestaurantDepositSet/index">寄存设置</a></li>
+																					</ul>
+																											<div class="menu-header" style="font-size:13px">餐桌<div class="menu-icon fa fa-caret-right"></div></div>
+							<ul class="multiple">
+														<li><a href="https://www.guatuan.cn/?s=/RestaurantTable/index">餐桌列表</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/RestaurantTableCategory/index">餐桌分类</a></li>
+																					</ul>
+																											<div class="menu-header" style="font-size:13px">营销<div class="menu-icon fa fa-caret-right"></div></div>
+							<ul class="multiple">
+														<li><a href="https://www.guatuan.cn/?s=/RestaurantCoupon/index">优惠券</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/RestaurantCuxiao/index">促销</a></li>
+																					</ul>
+																											<div class="menu-header" style="font-size:13px">收银台<div class="menu-icon fa fa-caret-right"></div></div>
+							<ul class="multiple">
+																					<li><a href="https://www.guatuan.cn/?s=/RestaurantCashdesk/index">收银设置</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/RestaurantCashdeskOrder/index">收银订单</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/RestaurantCashdeskOrder/tongji">订单统计</a></li>
+																					</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/RestaurantPrint/index" style="cursor: pointer;font-size:13px">餐厅区域打印</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/RestaurantRemark/index" style="cursor: pointer;font-size:13px">备注预置</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/Restaurant/sysset" style="cursor: pointer;font-size:13px">设置</a></li>
+                                							</ul>
+																									</div>
+										<div id="subnav_jiemian" style="display:none">
+						<div class="subnav-scene">界面设计</div>
+													<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/DesignerPage/index" style="cursor: pointer;font-size:13px">页面设计</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/DesignerCategory/index" style="cursor: pointer;font-size:13px">页面分类</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/DesignerMenu/index" style="cursor: pointer;font-size:13px">底部导航</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/DesignerMenu/menu2" style="cursor: pointer;font-size:13px">内页导航</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/DesignerMenuShopdetail/shopdetail" style="cursor: pointer;font-size:13px">商品详情</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/DesignerLogin/index" style="cursor: pointer;font-size:13px">登录页面</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/DesignerMobile/index" style="cursor: pointer;font-size:13px">移动端后台</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/DesignerShare/index" style="cursor: pointer;font-size:13px">分享设置</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/DesignerPage/chooseurl/type/geturl" style="cursor: pointer;font-size:13px">链接地址</a></li>
+                                							</ul>
+																									</div>
+										<div id="subnav_pingtai" style="display:none">
+						<div class="subnav-scene">平台设置</div>
+													<div class="menu-header" style="font-size:13px">微信公众号<div class="menu-icon fa fa-caret-right"></div></div>
+							<ul class="multiple">
+														<li><a href="https://www.guatuan.cn/?s=/Binding/index">公众号绑定</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/Mpmenu/index">菜单设置</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/Mppay/set">支付设置</a></li>
+																												<li><a href="https://www.guatuan.cn/?s=/Mptmpl/tmplset">模板消息设置</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/Mptmpl/tmplsetNew">类目模板消息</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/Mptmpl/mytmpl">已添加的模板</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/Mpkeyword/subscribe">被关注回复</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/Mpkeyword/index">关键字回复</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/Mpfans/fanslist">粉丝列表</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/Mpfans/tmplsend">模板消息群发</a></li>
+																					</ul>
+																											<div class="menu-header" style="font-size:13px">微信会员卡<div class="menu-icon fa fa-caret-right"></div></div>
+							<ul class="multiple">
+														<li><a href="https://www.guatuan.cn/?s=/Membercard/record">领取记录</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/Membercard/index">会员卡/创建</a></li>
+																					</ul>
+																											<div class="menu-header" style="font-size:13px">微信小程序<div class="menu-icon fa fa-caret-right"></div></div>
+							<ul class="multiple">
+														<li><a href="https://www.guatuan.cn/?s=/Binding/index">小程序绑定</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/Wxpay/set">支付设置</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/Wxtmpl/tmplset">订阅消息设置</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/Wxleimu/index">服务类目</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/Wxurl/index">外部链接</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/Wxembedded/index">半屏小程序</a></li>
+																					</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/Binding/alipay" style="cursor: pointer;font-size:13px">支付宝小程序</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/Binding/baidu" style="cursor: pointer;font-size:13px">百度小程序</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/Binding/toutiao" style="cursor: pointer;font-size:13px">抖音小程序</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/Binding/qq" style="cursor: pointer;font-size:13px">QQ小程序</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/Binding/h5" style="cursor: pointer;font-size:13px">手机H5</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/Binding/app" style="cursor: pointer;font-size:13px">手机APP</a></li>
+                                							</ul>
+																											<div class="menu-header" style="font-size:13px">视频号小店<div class="menu-icon fa fa-caret-right"></div></div>
+							<ul class="multiple">
+														<li><a href="https://www.guatuan.cn/?s=/WxChannels/bind">小店绑定</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/WxChannelsProduct/index">商品管理</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/WxChannelsCategory/index">商品类目</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/WxChannelsBrand/index">品牌库</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/WxChannelsOrder/index">订单管理</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/WxChannelsAfterSales/index">售后管理</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/WxChannelsAddress/index">地址管理</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/WxChannelsArea/index">行政区域</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/WxChannelsEwaybill/index">电子面单</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/WxChannelsFreight/index">运费模板</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/WxChannelsCoupon/index">优惠券</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/WxChannelsSharer/index">分享员</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/WxChannelsBankacct/index">结算账户</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/WxChannelsFundsflow/index">资金结算</a></li>
+																					<li><a href="https://www.guatuan.cn/?s=/WxChannelsLiveSet/set">预约直播设置</a></li>
+																					</ul>
+																									</div>
+										<div id="subnav_system" style="display:none">
+						<div class="subnav-scene">系统设置</div>
+													<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/Backstage/sysset" style="cursor: pointer;font-size:13px">系统设置</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/Mendian/index" style="cursor: pointer;font-size:13px">门店管理</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/User/index" style="cursor: pointer;font-size:13px">管理员列表</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/Freight/index" style="cursor: pointer;font-size:13px">配送方式</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/ExpressData/index" style="cursor: pointer;font-size:13px">快递设置</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/ShdSet/index" style="cursor: pointer;font-size:13px">送货单设置</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/Wifiprint/index" style="cursor: pointer;font-size:13px">小票打印机</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/Sms/set" style="cursor: pointer;font-size:13px">短信设置</a></li>
+                                							</ul>
+																											<ul class="single">
+                                								<li style="position: relative"><a href="https://www.guatuan.cn/?s=/Backstage/plog" style="cursor: pointer;font-size:13px">操作日志</a></li>
+                                							</ul>
+																									</div>
+										
+					<div class="wb-subnav-fold fa fa-angle-double-left" onclick="subnavflexible()"></div>
+				</div>
+			</div>
+
+
+      <!-- 主体内容 -->
+      <div class="layui-body" id="LAY_app_body">
+        <div class="layadmin-tabsbody-item layui-show">
+          <iframe src="./云帆商城 - 管理后台_files/saved_resource.html" frameborder="0" class="layadmin-iframe" id="mainFrame" name="mainFrame"></iframe>
+        </div>
+      </div>
+      <!-- 辅助元素，一般用于移动设备下遮罩 -->
+      <div class="layadmin-body-shade" onclick="flexible()"></div>
+    </div>
+  </div>
+	<script type="text/javascript" src="./云帆商城 - 管理后台_files/layui.all.js"></script>
+<script type="text/javascript" src="./云帆商城 - 管理后台_files/flow.js"></script>
+<script type="text/javascript" src="./云帆商城 - 管理后台_files/formSelects-v4.js"></script>
+<script type="text/javascript" src="./云帆商城 - 管理后台_files/jquery-ui.min.js"></script>
+<script type="text/javascript" src="./云帆商城 - 管理后台_files/ueditor.js"></script>
+<script type="text/javascript" src="./云帆商城 - 管理后台_files/135editor.js"></script>
+<script type="text/javascript" src="./云帆商城 - 管理后台_files/webuploader.js"></script>
+<script type="text/javascript" src="./云帆商城 - 管理后台_files/qrcode.min.js"></script>
+<script type="text/javascript" src="./云帆商城 - 管理后台_files/dianda.js"></script>
+
+<div id="NewsToolBox"></div>
+<script type="text/javascript">
+		// 解释文字浮层展示
+		$('.layui-text-popover').mouseenter(function(){
+			let pageHeight = $(window).height() + $(document).scrollTop();
+			let bottom = pageHeight - $(this).offset().top
+			let topNum = ($(this).offset().top - $(document).scrollTop()).toFixed(2);
+			let Height = $(this).find('.layui-textpopover-div').outerHeight();
+			$(this).find('.layui-textpopover-div').show()
+			let that = this;
+			setTimeout(function(){
+				if(topNum < (Height/2-15)){
+					$(that).find('.layui-textpopover-div').css({'top':-topNum+10+'px','opacity':1,'transition':'opacity .3s'})	
+				}else if(bottom < (Height/2-15)){
+					$(that).find('.layui-textpopover-div').css({'top': bottom-Height-10 +'px','opacity':1,'transition':'opacity .3s'})	
+				}else{
+					$(that).find('.layui-textpopover-div').css({'top':-(Height/2-15)+'px','opacity':1,'transition':'opacity .3s'})	
+				}
+			},100)
+		}) 
+		$('.layui-text-popover').mouseleave(function(){
+			$(this).find('.layui-textpopover-div').css({'opacity':0})	
+			$(this).find('.layui-textpopover-div').hide()
+		}) 
+		$('.layui-textpopover-div').mouseenter(function(){
+			$(this).find('.layui-textpopover-div').show()
+		})
+		$('.layui-textpopover-div').mouseleave(function(){
+			$(this).find('.layui-textpopover-div').css({'opacity':0})
+			$(this).find('.layui-textpopover-div').hide()
+		})
+		// 图片浮层展示
+		$('.layui-popover').mouseenter(function(){
+			let pageHeight = $(window).height() + $(document).scrollTop();
+			let bottom = pageHeight - $(this).offset().top
+			let topNum = ($(this).offset().top - $(document).scrollTop()).toFixed(2);
+			let Height = $(this).find('.layui-popover-div').outerHeight();
+			$(this).find('.layui-popover-div').show()
+			let that = this;
+			setTimeout(function(){
+				if(topNum < (Height/2-15)){
+					$(that).find('.layui-popover-div').css({'top':-topNum+10+'px','opacity':1,'transition':'opacity .3s'})	
+				}else if(bottom < (Height/2-15)){
+					$(that).find('.layui-popover-div').css({'top': bottom-Height-10 +'px','opacity':1,'transition':'opacity .3s'})	
+				}else{
+					$(that).find('.layui-popover-div').css({'top':-(Height/2-15)+'px','opacity':1,'transition':'opacity .3s'})	
+				}
+			},100)
+		}) 
+		$('.layui-popover').mouseleave(function(){
+			$(this).find('.layui-popover-div').css({'opacity':0})	
+			$(this).find('.layui-popover-div').hide()
+		}) 
+    function copyText(text) {
+        var top = document.documentElement.scrollTop;
+        var textarea = document.createElement("textarea"); //创建input对象
+        var currentFocus = document.activeElement; //当前获得焦点的元素
+        var toolBoxwrap = document.getElementById('NewsToolBox'); //将文本框插入到NewsToolBox这个之后
+        toolBoxwrap.appendChild(textarea); //添加元素
+        textarea.value = text;
+        textarea.focus();
+        document.documentElement.scrollTop = top;
+        if (textarea.setSelectionRange) {
+            textarea.setSelectionRange(0, textarea.value.length); //获取光标起始位置到结束位置
+        } else {
+            textarea.select();
+        }
+        try {
+            var flag = document.execCommand("copy"); //执行复制
+        } catch (eo) {
+            var flag = false;
+        }
+        toolBoxwrap.removeChild(textarea); //删除元素
+        currentFocus.focus();
+        if(flag) layer.msg('复制成功');
+        return flag;
+    }
+		// 查看链接
+		function viewLink(path,url=''){
+			var pagepath = path;
+			if(!url){
+				var url = "https://www.guatuan.cn/h5/1.html#/"+pagepath+""; //拼接 H5 链接
+			}
+						var html = '';
+			html+='<div style="margin:20px">';
+			html+='	<div style="width:100%;margin:10px 0" id="urlqr"></div>';
+						html+='	<div style="width:100%;text-align:center"><button class="layui-btn layui-btn-sm layui-btn-primary" onclick="showwxqrcode(\''+pagepath+'\')">查看小程序码</button></div>';
+						html+='	<div style="line-height:25px;"><div><span style="width: 70px;display: inline-block;">链接地址：</span><button class="layui-btn layui-btn-xs layui-btn-primary" onclick="copyText(\''+url+'\')">复制</button></div><div>'+url+'</div></div>';
+			html+='	<div style="height:50px;line-height:25px;"><div><span style="width: 70px;display: inline-block;">页面路径：</span><button style="box-sizing: border-box;" class="layui-btn layui-btn-xs layui-btn-primary" onclick="copyText(\'/'+pagepath+'\')">复制</button></div><div>/'+pagepath+'</div></div>';
+			html+='</div>';
+			layer.open({type:1,'title':'查看链接',area:['500px','430px'],shadeClose:true,'content':html})
+			var qrcode = new QRCode('urlqr', {
+					text: 'your content',
+					width: 200,
+					height: 200,
+					colorDark : '#000000',
+					colorLight : '#ffffff',
+					correctLevel : QRCode.CorrectLevel.L
+				});
+				qrcode.clear();
+				qrcode.makeCode(url);
+		}
+		// 查看小程序码
+		function showwxqrcode(pagepath){
+			var index = layer.load();
+			$.post("/?s=/DesignerPage/getwxqrcode",{path:pagepath},function(res){
+				layer.close(index);
+				if(res.status==0){
+					layer.open({type:1,area:['300px','350px'],content:'<div style="margin:auto auto;text-align:center"><div style="color:red;width:280px;height:180px;margin-top:100px">'+res.msg+'</div><div style="height:25px;line-height:25px;">'+'/'+pagepath+'</div></div>',title:false,shadeClose:true})
+				}else{
+					layer.open({type:1,area:['300px','350px'],content:'<div style="margin:auto auto;text-align:center"><img src="'+res.url+'" style="margin-top:20px;max-width:280px;max-height:280px"/><div style="height:25px;line-height:25px;">'+'/'+pagepath+'</div></div>',title:false,shadeClose:true})
+				}
+			})
+		}
+</script>
+<!-------使用js导出excel文件--------->
+<script src="./云帆商城 - 管理后台_files/excel.js"></script>
+<script src="./云帆商城 - 管理后台_files/excel(1).js"></script>
+<script>
+
+    var excel = new Excel();
+    var excel_name = '';
+    excel.bind(function (data,title) {
+        var excel_field = JSON.parse('[]');
+        if(title && title!=undefined){
+            //接口返回的title
+            var excel_title = title;
+        }else{
+            //excel_field.php 配置的title
+            var excel_title = JSON.parse('[]');
+        }
+        if(!excel_title || excel_title.length<=0){
+            //上面两种都没有title,读取table表格cols中的title，同时filed也更新为table表格cols中的field
+            excel_title = [];
+            excel_field = [];
+            var cols = tableIns.config.cols;
+            cols.forEach(function (cols_item, cols_index) {
+                console.log(cols_item);
+                cols_item.forEach(function (cols_item2, cols_index2) {
+                    console.log(cols_item2);
+                    if(cols_item2.title){
+                        excel_title.push(cols_item2.title)
+                        excel_field.push(cols_item2.field)
+                    }
+                })
+            })
+        }
+        // if(!excel_title || excel_title.length<=0){
+        //     layer.msg('未设置标题');
+        //     return;
+        // }
+
+        // 设置表格内容
+        data.forEach(function (item, index) {
+            var _data = [];
+            excel_title.forEach(function (title, index2) {
+                var field = excel_field[index2];
+                if(item[field] && item[field]!=undefined){
+                    //有filed 匹配field
+                    var field_val = item[field];
+                    //是整数 长度为10 字段名包含time 判定为时间戳
+                    if(parseInt(field_val) == field_val && (field_val.toString()).length==10 && field.includes('time')){
+                        field_val = date('Y-m-d H:i:s',field_val);
+                    }
+                }else{
+                    //没有filed 根据顺序来
+                    var field_val = item[index2];
+                }
+                _data.push(field_val);
+            })
+            data[index] = _data;
+        });
+        // 设置表头内容
+        if(excel_title && excel_title.length>0){
+            data.unshift(excel_title);
+        }
+        // 应用表格样式
+        return this.withStyle(data);
+
+    }, excel_name+layui.util.toDateString(Date.now(), '_yyyyMMdd_HHmmss'));
+
+</script>
+	<script>
+    function menuGoto(url){
+        var width = $(window).width();
+        
+        var iframe = $('body').find('.layadmin-iframe');
+        iframe[0].contentWindow.location.href = url;
+    }
+	function showsubnav(key){
+		$('div[id^=subnav_]').hide();
+		$('#subnav_'+key).show();
+		$('.wb-subnav').show();
+		$('#LAY_app').removeClass('layadmin-side-shrink2')
+	}
+	$(function(){
+		$(".menu-header").click(function(){
+			//$(".menu-header").removeClass('data-active');
+			//$(this).addClass('data-active');
+			if($(this).hasClass("active")){
+				$(this).next("ul").eq(0).hide()
+				$(this).find(".menu-icon").removeClass("fa-caret-down").addClass("fa-caret-right")
+				$(this).removeClass("active")
+			}else{
+				$(this).next("ul").eq(0).show()
+				$(this).find(".menu-icon").removeClass("fa-caret-right").addClass("fa-caret-down")
+				$(this).addClass("active")
+			}
+		})
+		$('.wb-subnav li').click(function(){
+			$('.wb-subnav li').removeClass('active');
+			$(this).addClass('active')
+		})
+	})
+	function subnavflexible(){
+		if($('#LAY_app').hasClass('layadmin-side-shrink2')){
+			//$('.wb-subnav').removeClass('subnavfold');
+			$('#LAY_app').removeClass('layadmin-side-shrink2')
+			//$('#LAY_app_body').css('left',$('#LAY_app_body').offset().left+110)
+		}else{
+			//$('.wb-subnav').addClass('subnavfold');
+			$('#LAY_app').addClass('layadmin-side-shrink2')
+			//$('#LAY_app_body').css('left',$('#LAY_app_body').offset().left-110)
+		}
+	}
+	function refresh(){
+		var iframe = $('body').find('.layadmin-iframe');
+		iframe[0].contentWindow.location.reload(true);
+	}
+	function getscreen(){
+		var width = $(window).width()
+		if(width >= 1200){
+			return 3; //大屏幕
+		} else if(width >= 992){
+			return 2; //中屏幕
+		} else if(width >= 768){
+			return 1; //小屏幕
+		} else {
+			return 0; //超小屏幕
+		}
+	}
+	function popup(options){
+    var success = options.success
+    ,skin = options.skin;
+    
+    delete options.success;
+    delete options.skin;
+    return layer.open($.extend({
+      type: 1
+      ,title: '提示'
+      ,content: ''
+      ,id: 'LAY-system-view-popup'
+      ,skin: 'layui-layer-admin' + (skin ? ' ' + skin : '')
+      ,shadeClose: true
+      ,closeBtn: false
+      ,success: function(layero, index){
+        var elemClose = $('<i class="layui-icon" close>&#x1006;</i>');
+        layero.append(elemClose);
+        elemClose.on('click', function(){
+          layer.close(index);
+        });
+        typeof success === 'function' && success.apply(this, arguments);
+      }
+    }, options))
+  }
+	$(function(){
+		var app = $('#LAY_app');
+		var iconElem = $('#LAY_app_flexible')
+		var screen = getscreen();
+		if(screen < 2){
+			iconElem.removeClass('layui-icon-shrink-right').addClass('layui-icon-spread-left');
+		}
+		//主题初始化
+    var local = layui.data('layuiAdmin');
+    local.theme && dotheme(local.theme);
+    
+    //低版本IE提示
+		var device = layui.device()
+    if(device.ie && device.ie < 10){
+			popup({
+				content: 'IE'+ device.ie + '下访问可能不佳，推荐使用：Chrome / Firefox / Edge 等高级浏览器'
+				,maxWidth: 300
+				//,shade: 0.01
+				,offset: 'auto'
+				,anim: 6
+				,id: 'LAY_errorIE'
+			})
+    }
+		$('body').on('mouseenter', '*[lay-tips]', function(){
+			var othis = $(this);
+			if(othis.parent().hasClass('layui-nav-item') && !$('#LAY_app').hasClass('layadmin-side-shrink')) return;
+			
+			var tips = othis.attr('lay-tips')
+			,offset = othis.attr('lay-offset') 
+			,direction = othis.attr('lay-direction')
+			,index = layer.tips(tips, this, {
+				tips: direction || 1
+				,time: -1
+				,success: function(layero, index){
+					if(offset){
+						layero.css('margin-left', offset + 'px');
+					}
+				}
+			});
+			othis.data('index', index);
+		}).on('mouseleave', '*[lay-tips]', function(){
+			layer.close($(this).data('index'));
+		});
+		//监听侧边导航点击事件
+		layui.element.on('nav(layadmin-system-side-menu)', function(elem){
+			if(elem.siblings('.layui-nav-child')[0] && $('#LAY_app').hasClass('layadmin-side-shrink')){
+				sideFlexible('spread');
+				layer.close(elem.data('index'));
+			}
+		});
+		//窗口resize事件
+		var resizeSystem = layui.data.resizeSystem = function(){
+			//layer.close(events.note.index);
+			layer.closeAll('tips');
+			if(!resizeSystem.lock){
+				setTimeout(function(){
+					sideFlexible(getscreen() < 2 ? '' : 'spread');
+					delete resizeSystem.lock;
+				}, 100);
+			}
+			resizeSystem.lock = true;
+		}
+		$(window).on('resize', layui.data.resizeSystem);
+	});
+	function sideFlexible(status){
+		var app = $('#LAY_app');
+		var iconElem =  $('#LAY_app_flexible');
+		var width = $(window).width()
+		var screen = getscreen();
+		//设置状态，PC：默认展开、移动：默认收缩
+		if(status === 'spread'){
+			//切换到展开状态的 icon，箭头：←
+			iconElem.removeClass('layui-icon-spread-left').addClass('layui-icon-shrink-right');
+			//移动：从左到右位移；PC：清除多余选择器恢复默认
+			if(screen < 2){
+				app.addClass('layadmin-side-spread-sm');
+			} else {
+				app.removeClass('layadmin-side-spread-sm');
+			}
+			app.removeClass('layadmin-side-shrink')
+		} else {
+			//切换到搜索状态的 icon，箭头：→
+			iconElem.removeClass('layui-icon-shrink-right').addClass('layui-icon-spread-left');
+			//移动：清除多余选择器恢复默认；PC：从右往左收缩
+			if(screen < 2){
+				app.removeClass('layadmin-side-shrink');
+			} else {
+				app.addClass('layadmin-side-shrink');
+			}
+			app.removeClass('layadmin-side-spread-sm')
+		}
+	}
+	function flexible(){
+		var iconElem = $('#LAY_app_flexible')
+    var isSpread = iconElem.hasClass('layui-icon-spread-left');
+		var status = isSpread ? 'spread' : null;
+		sideFlexible(status);
+	}
+	function note(othis){
+		var mobile = getscreen() < 2
+		var note = layui.data('layuiAdmin').note;
+		popup({
+			title: '便签'
+			,shade: 0
+			,offset: [
+				'41px'
+				,(mobile ? null : ($(othis).offset().left - 250) + 'px')
+			]
+			,anim: -1
+			,id: 'LAY_adminNote'
+			,skin: 'layadmin-note layui-anim layui-anim-upbit'
+			,content: '<textarea placeholder="内容"></textarea>'
+			,resize: false
+			,success: function(layero, index){
+				var textarea = layero.find('textarea')
+				var value = note === undefined ? '便签中的内容会存储在本地，这样即便你关掉了浏览器，在下次打开时，依然会读取到上一次的记录。是个非常小巧实用的本地备忘录' : note;
+				textarea.val(value).focus().on('keyup', function(){
+					layui.data('layuiAdmin', {key: 'note',value: this.value});
+				});
+			}
+		})
+	}
+	function about(){
+		var html = '<div class="layui-card-header">版本信息</div>';
+		html+='<div class="layui-card-body layui-text layadmin-about">';
+		html+='	<p>当前版本：v2.0</p>';
+		html+='</div>';
+		html+='<div class="layui-card-body layui-text layadmin-about">';
+		html+='	<p>© 2020 版权所有</p>';
+		html+='</div>';
+		layer.open({
+			id: 'LAY_adminPopupAbout',
+			type: 1,
+			anim: -1,
+			title: false,
+			closeBtn: false,
+			offset: 'r',
+			shade: 0.1,
+			shadeClose: true,
+			skin: 'layui-anim layui-anim-rl layui-layer-adminRight',
+			area: '300px',
+			content:html
+		});
+	}
+		var themecolor = [
+			{main: '#393a6a',selected: '#7b7de5',alias: 'purple-red'}, //紫红
+			{main: '#20222A',selected: '#009688',alias: 'default'}, //主题色 选中色 默认别名
+			{main: '#03152A',selected: '#3B91FF',alias: 'dark-blue'}, //藏蓝
+			{main: '#2E241B',selected: '#A48566',alias: 'coffee'}, //咖啡
+			{main: '#344058',logo: '#1E9FFF',selected: '#1E9FFF',alias: 'ocean'}, //海洋
+			{main: '#3A3D49',logo: '#2F9688',selected: '#5FB878',alias: 'green'}, //墨绿
+			{main: '#20222A',logo: '#F78400',selected: '#F78400',alias: 'red'}, //橙色
+			{main: '#28333E',logo: '#AA3130',selected: '#AA3130',alias: 'fashion-red'}, //时尚红
+			{main: '#24262F',logo: '#3A3D49',selected: '#009688',alias: 'classic-black'} //经典黑
+		];
+	function theme(){
+		var local = layui.data('layuiAdmin')
+    var theme = local.theme || {}
+    var themeColorIndex =  parseInt((theme && theme.color) ? theme.color.index : 0) || 0;
+		console.log(theme)
+		console.log(themeColorIndex)
+		var html = '<div class="layui-card-header">配色方案</div>';
+		html += '<div class="layui-card-body layadmin-setTheme">';
+		html += '	<ul class="layadmin-setTheme-color">';
+		for(var index in themecolor){
+			var item = themecolor[index]
+			html += '	<li onclick="setTheme(this)" data-index="'+index+'" data-alias="'+item.alias+'" '+(index==themeColorIndex?'class="layui-this"':'')+' title="'+item.alias+'">';
+			html += '		<div class="layadmin-setTheme-header"></div>';
+			html += '		<div class="layadmin-setTheme-side" style="background-color: '+item.main+';">';
+			html += '			<div class="layadmin-setTheme-logo" style="background-color: '+item.logo+';"></div>';
+			html += '		</div>';
+			html += '	</li>';
+		}
+		html += '	</ul>';
+		html += '</div>';
+		layer.open({
+			id: 'LAY_adminPopupTheme',
+			type: 1,
+			anim: -1,
+			title: false,
+			closeBtn: false,
+			offset: 'r',
+			shade: 0.1,
+			shadeClose: true,
+			skin: 'layui-anim layui-anim-rl layui-layer-adminRight',
+			area: '300px',
+			content:html
+		});
+	}
+	function setTheme(othis){
+		othis = $(othis)
+		var index = othis.data('index')
+		var nextIndex = othis.siblings('.layui-this').data('index');
+		if(othis.hasClass('layui-this')) return;
+		othis.addClass('layui-this').siblings('.layui-this').removeClass('layui-this');
+		if(themecolor[index]){
+			themecolor[index].index = index
+			dotheme({color: themecolor[index]});
+		}
+	}
+	function dotheme(options){
+		var local = layui.data('layuiAdmin')
+		var id = 'LAY_layadmin_theme'
+		var style = document.createElement('style')
+		var styleText = layui.laytpl([
+			//主题色
+			'.layui-side-menu,'
+			,'.layadmin-pagetabs .layui-tab-title li:after,'
+			,'.layadmin-pagetabs .layui-tab-title li.layui-this:after,'
+			,'.layui-layer-admin .layui-layer-title,'
+			,'.layadmin-side-shrink .layui-side-menu .layui-nav>.layui-nav-item>.layui-nav-child'
+			,'{background-color:{{d.color.main}} !important;}'
+			//选中色
+			,'.layui-nav-tree .layui-this,'
+			,'.layui-nav-tree .layui-this>a,'
+			,'.layui-nav-tree .layui-nav-child dd.layui-this,'
+			,'.layui-nav-tree .layui-nav-child dd.layui-this a'
+			,'{background-color:{{d.color.selected}} !important;}'
+			//logo
+			,'.layui-layout-admin .layui-logo{background-color:{{d.color.logo || d.color.main}} !important;}}'
+		].join('')).render(options = $.extend({}, local.theme, options))
+		var styleElem = document.getElementById(id);
+		
+		//添加主题样式
+		if('styleSheet' in style){
+			style.setAttribute('type', 'text/css');
+			style.styleSheet.cssText = styleText;
+		} else {
+			style.innerHTML = styleText;
+		}
+		style.id = id;
+		
+		styleElem && $('body')[0].removeChild(styleElem);
+		$('body')[0].appendChild(style);
+		$('body').attr('layadmin-themealias', options.color.alias);
+		
+		//本地存储记录
+		local.theme = local.theme || {};
+		layui.each(options, function(key, value){
+			local.theme[key] = value;
+		});
+		layui.data('layuiAdmin', {key: 'theme',value: local.theme});
+	}
+	
+	//全屏
+	function fullScreen(){
+		var isfullScreen = isFullscreen()
+		if(!isfullScreen){
+			var el = document.documentElement;
+			var rfs = el.requestFullScreen || el.webkitRequestFullScreen || el.mozRequestFullScreen || el.msRequestFullScreen;
+
+			//typeof rfs != "undefined" && rfs
+			if (rfs) {
+					rfs.call(el);
+			}
+			else if (typeof window.ActiveXObject !== "undefined") {
+					//for IE，这里其实就是模拟了按下键盘的F11，使浏览器全屏
+					var wscript = new ActiveXObject("WScript.Shell");
+					if (wscript != null) {
+							wscript.SendKeys("{F11}");
+					}
+			}
+		}else{
+			exitScreen();
+		}
+	}
+	//退出全屏
+	function exitScreen(){
+			var el = document;
+			var cfs = el.cancelFullScreen || el.webkitCancelFullScreen || el.mozCancelFullScreen || el.exitFullScreen;
+
+			//typeof cfs != "undefined" && cfs
+			if (cfs) {
+					cfs.call(el);
+			}
+			else if (typeof window.ActiveXObject !== "undefined") {
+					//for IE，这里和fullScreen相同，模拟按下F11键退出全屏
+					var wscript = new ActiveXObject("WScript.Shell");
+					if (wscript != null) {
+							wscript.SendKeys("{F11}");
+					}
+			}
+	}
+	function isFullscreen(){
+			return document.fullscreenElement    ||
+						 document.msFullscreenElement  ||
+						 document.mozFullScreenElement ||
+						 document.webkitFullscreenElement || false;
+	}
+	function showddqrcode(){
+		layer.open({type:1,area:['300px','380px'],content:'<div style="margin:auto auto;text-align:center"><img src="/?s=/User/getqrcode" style="margin-top:20px;max-width:280px;max-height:280px"/><div style="font-size:30px;color:#e94745"><span style="font-size:24px"></span></div><div style="font-size:14px;text-align:left;margin:0 20px">关注公众号接收消息通知，查看手机商家助手，并且可以实时接收并回复粉丝咨询信息。</div></div>',title:false,shadeClose:true})
+	}
+	function showlinks(){
+		layer.open({type:2,shadeClose:true,area:['1100px', '650px'],'title':'查看链接',content:"/?s=/DesignerPage/chooseurl/type/geturl"})
+	}
+	setInterval(function(){ //保持连接 5分钟请求一次
+		$.post("/?s=/Backstage/linked",{});
+	},5*60000);
+
+		var mobiletourl = 'https://www.guatuan.cn/h5/1.html#/admin/index/index';
+	function receiveMessage(data){
+		console.log(data)
+		var datainfo = {};
+		if(data.type=='tokefu'){
+			datainfo.logo = data.data.headimg;
+			datainfo.title = data.data.nickname+' 发来消息';
+			datainfo.desc = data.data.content;
+			//datainfo.tourl = 'https://www.guatuan.cn/h5/1.html#/admin/kefu/message?mid='+data.data.mid;
+			datainfo.tourl = 'https://www.guatuan.cn/h5/1.html#/admin/kefu/index';
+		}else if(data.type=='notice'){
+			datainfo.logo = '';
+			datainfo.title = data.data.title;
+			datainfo.desc = data.data.desc;
+			datainfo.tourl = 'https://www.guatuan.cn/h5/1.html#'+data.data.url;
+		}else{
+			return;
+		}
+		if(datainfo.tourl) mobiletourl = datainfo.tourl;
+		var audio = document.createElement("audio");
+		audio.src = '/static/chat/default.mp3';
+		audio.play();
+		layer.tips(datainfo.title + ' ' + datainfo.desc, '#mobileicon');
+	}
+	var websocket =null;
+	function websocketsend(senddata){
+		if(websocket==null || websocket.readyState!=1){
+			//console.log(1)
+			websocket = new WebSocket('wss://www.guatuan.cn/wss');
+			websocket.onopen = function(evt) {
+				websocket.send(JSON.stringify({ type:'khinit',token:'J0r382DUl8Zm23SR',data:{ aid:1,mid:32 } }))
+				if(senddata){
+					websocket.send(JSON.stringify(senddata))
+				}
+			};
+			websocket.onclose = function(evt) {
+					console.log('onclose');
+					console.log(evt);
+			};
+			websocket.onmessage = function(res) {
+				console.log(res.data)
+				try{
+					var data = JSON.parse(res.data);
+					receiveMessage(data);
+				}catch(e){}
+			};
+			websocket.onerror = function(evt) {
+					console.log('onerror');
+					console.log(evt);
+			};
+		}else{
+			if(senddata)
+			websocket.send(JSON.stringify(senddata))
+		}
+	}
+	websocketsend('');
+	var interval1 = setInterval(function(){
+		websocketsend({type:'connect'});
+	},25000)
+	function openmobile(){
+		mobiletourl += (mobiletourl.indexOf('?') === -1 ? '?' : '&') + 'uid=1';
+		var checkLayer = layer.open({type:2,area:['375px','600px'],title:false,content:mobiletourl,shadeClose:true});
+	}
+		</script>
+
+
+
+</body></html>
